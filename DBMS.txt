@@ -1,0 +1,44 @@
+create database garvita;
+use garvita;
+
+ create table passw
+ (pass varchar (30),
+ uid varchar(30));
+
+INSERT INTO passw values("LIB", 'LIBRARY');
+
+ create table author
+ (aid int (10) primary key,
+ aname varchar(30));
+
+create table book
+ (bid int (10) primary key,
+btitle varchar(30),
+btype varchar(30),
+aid int (10),
+price int(10),
+foreign key (aid) references author(aid));
+
+ create table student
+ (sid int (10) primary key,
+ sname varchar(30),
+sclass int(3));
+
+create table issuer
+(sid int (10),
+sname varchar(30),
+bid int (10),
+dor date,
+foreign key (sid) references student(sid),
+foreign key (bid) references book(bid));
+
+create table returner
+(sid int (10),
+sname varchar(30),
+bid int (10),
+dor date,
+foreign key (sid) references student(sid),
+foreign key (bid) references book(bid));
+
+
+
